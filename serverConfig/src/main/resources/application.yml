@@ -1,0 +1,21 @@
+info:
+  component: SpringConfig-Server
+
+server:
+  port: 8888
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/rantez/configService
+  application:
+    name: SpringConfig-Server
+
+profiles:
+  active: dev
+
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.intance_id:${random.value}}}

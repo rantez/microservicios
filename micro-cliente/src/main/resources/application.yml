@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: servicedata
+
+info:
+  component: Microservicios
+
+server:
+  port: 0
+
+eureka:
+  instance:
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.intance_id:${random.value}}}
+
+cloud:
+  services:
+    restrationMethod: route
